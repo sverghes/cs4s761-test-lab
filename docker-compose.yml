@@ -1,0 +1,18 @@
+services:
+  node-a:
+    image: python:3.11-slim
+    container_name: node-a
+    hostname: node-a
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: python server.py
+
+  node-b:
+    image: python:3.11-slim
+    container_name: node-b
+    hostname: node-b
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: tail -f /dev/null
